@@ -38,10 +38,10 @@ const defaultPage = ref(""); */
                         <span class="sr-only">
                             Previous
                         </span>
-                        <span class="h-8 w-5 rotate-180" aria-hidden="true"> 
+                        <span class="h-8 w-5 rotate-180" aria-hidden="true">
                             >
                         </span>
-                        
+
                     </a>
                     <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-white ring-inset ring-gray-300 hover:bg-gray-500 focus:outline-offset-0" -->
                     <a href="#" aria-current="page"
@@ -85,14 +85,14 @@ const defaultPage = ref(""); */
                         10
                     </a>
                     <a href="#"
-                    class="relative inline-flex items-center rounded-r-md px-2 py-2 ttext-white ring-1 ring-inset ring-gray-300 hover:bg-gray-500 focus:z-20 focus:outline-offset-0">
-                    <span class="sr-only">
-                        Next
-                    </span>
-                    <span> > </span>
-                </a>
-            </nav>
+                        class="relative inline-flex items-center rounded-r-md px-2 py-2 ttext-white ring-1 ring-inset ring-gray-300 hover:bg-gray-500 focus:z-20 focus:outline-offset-0">
+                        <span class="sr-only">
+                            Next
+                        </span>
+                        <span> > </span>
+                    </a>
+                </nav>
+            </div>
         </div>
     </div>
-</div></template>
-  
+</template>
