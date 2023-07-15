@@ -2,7 +2,7 @@
 import json from '@/data/dataBooks.json';
 import HeaderSection from '@/components/HeaderSection.vue';
 import BookList from '@/components/BookList.vue';
-import BookInfo from '@/components/BookInfo.vue';
+import BookFilters from '@/components/BookFilters.vue';
 
 const dataBooks = json.library
 
@@ -14,7 +14,7 @@ console.log("json", dataBooks);
     <HeaderSection/>
   </header>
   <main class="container mx-auto py-6">
-      <BookInfo/>
+      <BookFilters/>
       <BookList :dataBooks="dataBooks"/>
   </main>
 </template>

@@ -3,9 +3,14 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lumanosimo: ['lumanosimo', 'cursive'],
+        pacifico : ['pacifico', 'cursive'],
+      },
       spacing: {
         '128': '29rem',
       }
@@ -16,6 +21,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/aspect-ratio'),
+    require('flowbite/plugin')
   ],
 }
 

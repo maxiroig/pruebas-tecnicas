@@ -4,13 +4,8 @@ const props = defineProps(["data"]);
 </script>
 <template>
     <div>
-        <BaseText>
+        <BaseText class="text-4xl ms-2">
             Total Books: {{ props.data }}
         </BaseText>
     </div>
 </template>
-
-
-<style lang="scss" scoped>
-
-</style>
