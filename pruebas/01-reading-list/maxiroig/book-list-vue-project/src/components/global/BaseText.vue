@@ -1,5 +1,7 @@
 <script setup>
-
+const props = defineProps ([
+    
+])
 </script>
 
 <template>
@@ -7,8 +9,3 @@
         <slot/>
     </div>
 </template>
-
-
-<style lang="scss" scoped>
-
-</style>

@@ -9,7 +9,7 @@ const props = defineProps(["title", "cover", "author", "genre", ])
         :src="props.cover" 
         :alt="title" 
     />
-    <h3 class="text-base font-semibold mt-3 tracking-tight text-pink-600 hover:text-pink-400 hover:cursor-pointer">
+    <h3 class="text-base font-semibold mt-3 tracking-tight text-pink-600 hover:text-pink-500 hover:cursor-pointer">
         {{ title }}
     </h3>
     <div>
