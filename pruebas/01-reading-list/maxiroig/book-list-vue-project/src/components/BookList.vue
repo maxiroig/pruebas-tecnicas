@@ -7,6 +7,6 @@ const props = defineProps(["dataBooks"])
 
 <template>
         <div class="mb-6">
-            <BaseGrid :books="dataBooks"/>
+            <BaseGrid :books="props.dataBooks"/>
         </div>
 </template>

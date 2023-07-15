@@ -6,10 +6,10 @@ const props = defineProps(["title", "cover", "author", "genre", ])
 <template>
     <img 
         class="mx-auto h-48 w-48 md:h-56 md:w-56" 
-        :src="cover" 
+        :src="props.cover" 
         :alt="title" 
     />
-    <h3 class="text-base font-semibold mt-3 tracking-tight text-pink-500 hover:text-orange-500 hover:cursor-pointer">
+    <h3 class="text-base font-semibold mt-3 tracking-tight text-pink-600 hover:text-pink-400 hover:cursor-pointer">
         {{ title }}
     </h3>
     <div>
