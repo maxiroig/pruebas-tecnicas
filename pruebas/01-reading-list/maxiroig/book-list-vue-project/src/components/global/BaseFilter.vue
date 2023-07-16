@@ -3,10 +3,17 @@ import { ref } from 'vue';
 const props = defineProps(["data", "id", "label", "type", "min", "max"])
 
 const genreFilterSelected = ref("")
-const rangeFilterSelected = ref("50")
-const test = () => {
+const rangeFilterSelected = ref(null)
+
+
+const resetAllFilters = () => {
+    genreFilterSelected.value = "";
+    rangeFilterSelected.value = null;
     console.log("range", rangeFilterSelected.value);
 }
+defineExpose({
+    resetAllFilters
+})
 </script>
 
 <template>
@@ -22,7 +29,7 @@ const test = () => {
             </select>
         </div>
         <div v-if="type === 'range'" class="items-center justify-center grid grid-rows-2">
-            <label for="default-range" class="text-xl font-medium text-white-900 dark:text-white relative top-3">
+            <label for="default-range" class="text-xl text-white-900 dark:text-white relative top-3">
                 {{ label }}
             </label>
             <span class="text-sm relative top-4">{{ rangeFilterSelected }}</span>

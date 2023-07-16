@@ -1,10 +1,17 @@
 <script setup>
 import BaseFilter from './global/BaseFilter.vue';
 import TotalAvailableBooks from './TotalAvailableBooks.vue';
+import { ref } from 'vue';
+
+const resetFiltersNewValue = ref(null);
+
+const resetFilters = () => {
+    resetFiltersNewValue.value.resetAllFilters();
+};
 </script>
 <template>
     <div class="text-end">
-        <span class="text-sm  mb-1 text-pink-500 cursor-pointer hover:text-pink-400">
+        <span @click="resetFilters" class="text-sm  mb-1 text-pink-500 cursor-pointer hover:text-pink-400">
             Reset Filters >>
         </span>
     </div>
@@ -13,6 +20,7 @@ import TotalAvailableBooks from './TotalAvailableBooks.vue';
             class="grid grid-cols-2"
         />
         <BaseFilter
+            ref="resetFiltersNewValue"
             :data="['testuno', 'testdos', 'testtres']"
             label="Filter by genre"
             id="gender"
