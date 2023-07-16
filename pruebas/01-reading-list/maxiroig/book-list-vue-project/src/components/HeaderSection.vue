@@ -12,11 +12,8 @@
                 Leave your mind fly
             </h3>
         </div>
-        <lord-icon
-            src="https://cdn.lordicon.com/hursldrn.json"
-            trigger="morph"
-            colors="primary:#4be1ec,secondary:#cb5eee"
-            style="width:250px;height:250px">
+        <lord-icon src="https://cdn.lordicon.com/hursldrn.json" trigger="loop-on-hover" delay="1000"
+            colors="primary:#ee66aa,secondary:#c7166f" style="width:250px;height:250px">
         </lord-icon>
     </div>
 </template>

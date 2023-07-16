@@ -3,9 +3,10 @@ import BaseFilter from './global/BaseFilter.vue';
 import TotalAvailableBooks from './TotalAvailableBooks.vue';
 </script>
 <template>
-    
-    <div class="text-sm text-end mb-1 text-pink-500 cursor-pointer">
-        Reset Filters >>
+    <div class="text-end">
+        <span class="text-sm  mb-1 text-pink-500 cursor-pointer hover:text-pink-400">
+            Reset Filters >>
+        </span>
     </div>
     <div class="grid grid-cols-3 border border-1 border-gray-500 rounded-lg py-3 mb-8 items-center">
         <TotalAvailableBooks 
@@ -22,7 +23,7 @@ import TotalAvailableBooks from './TotalAvailableBooks.vue';
             label="Filter by pages"
             id="pages"
             min="50"
-            max="2000"
+            max="3000"
         />
     </div>
 </template>

@@ -45,7 +45,7 @@ const defaultPage = ref(""); */
                     </a>
                     <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-white ring-inset ring-gray-300 hover:bg-gray-500 focus:outline-offset-0" -->
                     <a href="#" aria-current="page"
-                        class="relative z-10 inline-flex items-center bg-pink-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="relative z-10 inline-flex items-center bg-pink-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         1
                     </a>
                     <a href="#"

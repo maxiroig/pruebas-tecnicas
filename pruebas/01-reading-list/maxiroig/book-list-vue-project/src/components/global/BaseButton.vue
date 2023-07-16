@@ -7,7 +7,7 @@ const props = defineProps([""]);
 <template>
   <div class="self-end">
     <button
-      class="flex p-2 bg-pink-600 hover:bg-pink-500 rounded-lg mx-auto self-end cursor-pointer swing"
+      class="flex p-2 bg-pink-500 hover:bg-pink-400 rounded-lg mx-auto self-end cursor-pointer swing"
     >
       <PlusCircleIcon class="h-6 w-6" aria-hidden="true" />
       <slot class="ms-2"></slot>

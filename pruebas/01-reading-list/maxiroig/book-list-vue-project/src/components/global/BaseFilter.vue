@@ -3,7 +3,10 @@ import { ref } from 'vue';
 const props = defineProps(["data", "id", "label", "type", "min", "max"])
 
 const genreFilterSelected = ref("")
-const rangeFilterSelected = ref("")
+const rangeFilterSelected = ref("50")
+const test = () => {
+    console.log("range", rangeFilterSelected.value);
+}
 </script>
 
 <template>
@@ -19,17 +22,23 @@ const rangeFilterSelected = ref("")
             </select>
         </div>
         <div v-if="type === 'range'" class="items-center justify-center grid grid-rows-2">
-            <label for="default-range" class="text-xl mb-2 font-medium text-white-900 dark:text-white">
+            <label for="default-range" class="text-xl font-medium text-white-900 dark:text-white relative top-3">
                 {{ label }}
             </label>
+            <span class="text-sm relative top-4">{{ rangeFilterSelected }}</span>
+            <div class="flex justify-between relative bottom-2">
+                <span>-</span>
+                <span>+</span>
+            </div>
             <input
+                @mouseup="test"
                 v-model="rangeFilterSelected" 
                 id="id" 
                 :type="type" 
                 :min="min" 
                 :max="max"
                 :value="rangeFilterSelected"
-                class="w-96 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                class="w-96 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 relative bottom-2"
             >
         </div>
     </div>
