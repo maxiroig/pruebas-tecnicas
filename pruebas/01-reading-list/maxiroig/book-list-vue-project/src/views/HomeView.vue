@@ -7,6 +7,9 @@ import {useStore} from 'vuex'
 const store = useStore()
 const dataBooks = store.state.data.library
 
+const bookSelected = (id) => {
+  console.log("last", id);
+}
 </script>
 
 <template>
@@ -15,6 +18,8 @@ const dataBooks = store.state.data.library
   </header>
   <main class="container mx-auto py-6">
       <BookFilters/>
-      <BookList :dataBooks="dataBooks"/>
+      <BookList 
+      @bookSelected="bookSelected"
+      :dataBooks="dataBooks"/>
   </main>
 </template>

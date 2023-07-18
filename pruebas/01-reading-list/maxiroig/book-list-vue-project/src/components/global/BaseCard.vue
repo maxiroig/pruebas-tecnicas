@@ -2,8 +2,11 @@
 import { onMounted } from 'vue';
 import {initTooltips} from 'flowbite'
 
-const props = defineProps(["title", "cover", "author", "genre", ])
-
+const props = defineProps(["title", "cover", "author", "genre", "ISBN"])
+const emit = defineEmits(["bookSelected"])
+const bookSelected = (id) => {
+    emit("bookSelected", id)
+} 
 onMounted(() => {
     initTooltips()
 })
@@ -14,6 +17,7 @@ onMounted(() => {
     <div class="text-end">
         <span>
             <lord-icon
+                @click="bookSelected(ISBN)"
                 class="h-3"
                 data-tooltip-target="tooltip-details"
                 src="https://cdn.lordicon.com/zniqnylq.json"
@@ -47,7 +51,9 @@ onMounted(() => {
         :src="props.cover" 
         :alt="title" 
     />
-    <h3 class="text-base font-semibold mt-3 tracking-tight text-pink-500 hover:text-pink-400 hover:cursor-pointer">
+    <h3 
+    @click="bookSelected(ISBN)"
+    class="text-base font-semibold mt-3 tracking-tight text-pink-500 hover:text-pink-400 hover:cursor-pointer">
         {{ title }}
     </h3>
     <div>
