@@ -4,7 +4,6 @@ import BaseCard from './BaseCard.vue';
 const props = defineProps([
     "books",
 ])
-console.log("books", props.books);
 </script>
 
 <template>

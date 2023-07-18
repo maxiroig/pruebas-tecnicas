@@ -1,12 +1,12 @@
 <script setup>
-import json from '@/data/dataBooks.json';
 import HeaderSection from '@/components/HeaderSection.vue';
 import BookList from '@/components/BookList.vue';
 import BookFilters from '@/components/BookFilters.vue';
+import {useStore} from 'vuex'
 
-const dataBooks = json.library
+const store = useStore()
+const dataBooks = store.state.data.library
 
-console.log("json", dataBooks);
 </script>
 
 <template>

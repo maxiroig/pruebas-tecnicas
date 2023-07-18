@@ -1,12 +1,19 @@
 <script setup>
 import BaseFilter from './global/BaseFilter.vue';
 import TotalAvailableBooks from './TotalAvailableBooks.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { mapGetters } from 'vuex'
+
 
 const resetFiltersNewValue = ref(null);
 
+const library = computed(() => {
+    return mapGetters(library)
+}) 
+
 const resetFilters = () => {
     resetFiltersNewValue.value.resetAllFilters();
+    console.log("store", library.value);
 };
 </script>
 <template>
