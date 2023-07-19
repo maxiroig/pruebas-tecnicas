@@ -4,7 +4,9 @@ import { createStore } from 'vuex'
 // root state object.
 // each Vuex instance is just a single state tree.
 const state = {
-  data: data
+  library: data.library,
+  bookToShowDetails: "",
+  booksInList:[],
 }
 
 // mutations are operations that actually mutate the state.
@@ -13,13 +15,17 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
- 
+  updateBookToShow(state, payload){
+    state.bookToShowDetails = payload
+  }
 }
 
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
- 
+  bookToShow (context, payload) {
+    context.commit("updateBookToShow", payload)
+  }
 }
 
 // getters are functions.

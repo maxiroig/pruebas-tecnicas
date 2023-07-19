@@ -1,12 +1,18 @@
 <script setup>
 import { onMounted } from 'vue';
 import {initTooltips} from 'flowbite'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const props = defineProps(["title", "cover", "author", "genre", "ISBN"])
 const emit = defineEmits(["bookSelected"])
 const bookSelected = (id) => {
     emit("bookSelected", id)
 } 
+
+const test = (id) => {
+    store.dispatch('bookToShow', id)
+}
 onMounted(() => {
     initTooltips()
 })
@@ -17,7 +23,7 @@ onMounted(() => {
     <div class="text-end">
         <span>
             <lord-icon
-                @click="bookSelected(ISBN)"
+                @click="test(ISBN)"
                 class="h-3"
                 data-tooltip-target="tooltip-details"
                 src="https://cdn.lordicon.com/zniqnylq.json"
