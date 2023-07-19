@@ -30,7 +30,9 @@ const actions = {
 
 // getters are functions.
 const getters = {
- 
+  getBookById: (state) => (id) => {
+    return state.library.filter(item => item.book.ISBN === id)
+  },
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,

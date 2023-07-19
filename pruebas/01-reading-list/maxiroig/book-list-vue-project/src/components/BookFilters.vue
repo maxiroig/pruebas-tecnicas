@@ -18,7 +18,7 @@ const resetFilters = () => {
 </script>
 <template>
     <div class="text-end">
-        <span @click="resetFilters" class="text-sm  mb-1 text-pink-500 cursor-pointer hover:text-pink-400">
+        <span @click="resetFilters" class="text-sm  mb-1 text-pink-600 cursor-pointer hover:text-pink-500">
             Reset Filters >>
         </span>
     </div>

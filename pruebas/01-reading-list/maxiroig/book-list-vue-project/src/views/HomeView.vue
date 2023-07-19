@@ -11,12 +11,9 @@ const store = useStore()
 const library = store.state.library
 
 
-const getNewBookToShow = computed (() => {
-  return store.state.bookToShowDetails
-}) 
-watch(getNewBookToShow,(currentValue) => {
-  router.push(`/book/${currentValue}`)
-})
+const getNewBookToShow = computed (() => {return store.state.bookToShowDetails}) 
+watch(getNewBookToShow,(currentValue) => {router.push(`/book/${currentValue}`)})
+
 </script>
 
 <template>
