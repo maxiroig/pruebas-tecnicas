@@ -6,7 +6,7 @@ import { createStore } from 'vuex'
 const state = {
   library: data.library,
   bookToShowDetails: "",
-  booksInList:[],
+  booksInMyList:[],
 }
 
 // mutations are operations that actually mutate the state.

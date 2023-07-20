@@ -2,6 +2,7 @@
 import HeaderSection from '@/components/HeaderSection.vue';
 import BookList from '@/components/BookList.vue';
 import BookFilters from '@/components/BookFilters.vue';
+import MyList from '../components/MyList.vue';
 import { useStore } from 'vuex'
 import { watch, computed } from 'vue';
 import { useRouter } from 'vue-router'
@@ -21,9 +22,13 @@ watch(getNewBookToShow,(currentValue) => {router.push(`/book/${currentValue}`)})
     <HeaderSection/>
   </header>
   <main class="container mx-auto py-6">
-      <BookFilters/>
-      <BookList 
+    <MyList
+    :data="library"
+    />
+    <BookFilters/>
+    <BookList 
       @bookSelected="bookSelected"
-      :dataBooks="library"/>
+      :dataBooks="library"
+    />
   </main>
 </template>

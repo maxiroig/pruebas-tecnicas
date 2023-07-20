@@ -4,7 +4,7 @@
 
 <template>
   <div class="self-end">
-    <button class="flex p-2 bg-pink-500 hover:bg-pink-400 rounded-lg mx-auto self-end cursor-pointer grow">
+    <button class="flex p-2 bg-pink-600 hover:bg-pink-500 rounded-lg mx-auto self-end cursor-pointer grow">
       <slot class="ms-2"></slot>
     </button>
   </div>

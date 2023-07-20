@@ -14,6 +14,7 @@ const props = defineProps(["books"])
                 :author="item.book.author.name"
                 :genre="item.book.genre"
                 :ISBN="item.book.ISBN"
+                :pages="item.book.pages"
             />
         </li>
     </ul>

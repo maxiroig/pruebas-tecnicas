@@ -4,7 +4,7 @@ import {initTooltips} from 'flowbite'
 import { useStore } from 'vuex'
 
 const store = useStore()
-const props = defineProps(["title", "cover", "author", "genre", "ISBN"])
+const props = defineProps(["title", "cover", "author", "genre","pages", "ISBN"])
 
 const bookSelected = (id) => {
     store.dispatch('bookToShow', id)
@@ -29,7 +29,7 @@ onMounted(() => {
                 stroke="80"
                 style="width:30px;height:30px">
             </lord-icon>         
-            <div id="tooltip-details" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            <div id="tooltip-details" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 Details
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div> 
@@ -44,7 +44,7 @@ onMounted(() => {
                 stroke="80"
                 style="width:30px;height:30px">
             </lord-icon>
-            <div id="tooltip-add" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            <div id="tooltip-add" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 Add to list
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div> 
@@ -82,16 +82,22 @@ onMounted(() => {
         {{ title }}
     </h3>
     <div>
-        <p class="text-sm leading-6 text-gray-400">
+        <p class="text-xs leading-5 text-gray-400">
             Author:
             <span class="text-white">
                 {{ author }}
             </span>
         </p>
-        <p class="text-sm leading-6 text-gray-400">
+        <p class="text-xs leading-5 text-gray-400">
             Genre:
             <span class="text-white">
                 {{ genre }}
+            </span>
+        </p>
+        <p class="text-xs leading-5 text-gray-400">
+            Pages:
+            <span class="text-white">
+                {{ pages }}
             </span>
         </p>
     </div>
