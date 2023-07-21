@@ -14,8 +14,6 @@ const getBookFromState = computed (() => {
 })
 const bookToShowDetails = ref(getBookFromState.value[0].book)
 
-console.log("test", bookToShowDetails.value.title);
-
 </script>
 
 <template>

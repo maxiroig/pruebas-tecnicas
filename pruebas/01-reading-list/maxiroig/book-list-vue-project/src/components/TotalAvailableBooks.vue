@@ -1,11 +1,11 @@
 <script setup>
-import BaseText from './global/BaseText.vue';
 const props = defineProps(["data"]);
 </script>
 <template>
-    <div>
-        <BaseText class="text-4xl ms-2">
-            Total Books: {{ props.data }}
-        </BaseText>
+    <div class="">
+        <h2 class="text-4xl ms-2">
+            Total Books: 
+            {{ props.data }}
+        </h2>
     </div>
 </template>

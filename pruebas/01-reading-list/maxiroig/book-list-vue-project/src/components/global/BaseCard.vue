@@ -5,6 +5,7 @@ import { useStore } from 'vuex'
 
 const store = useStore()
 const props = defineProps(["title", "cover", "author", "genre","pages", "ISBN"])
+const emit = defineEmits(["bookToAdd"])
 
 const bookSelected = (id) => {
     store.dispatch('bookToShow', id)
@@ -36,6 +37,7 @@ onMounted(() => {
         </span>
         <span>
             <lord-icon
+                @click="emit('bookToAdd',ISBN)"
                 class="cursor-pointer"
                 data-tooltip-target="tooltip-add"
                 src="https://cdn.lordicon.com/ytuosppc.json"

@@ -1,10 +1,12 @@
 <script setup>
 const props = defineProps(["title", "cover", "author", "genre", "ISBN", "year", "pages", "synopsis"])
+const emit = defineEmits(["removeBookFromMyList"])
 </script>
 <template>
     <div class="w-full min-h-[290px] mt-2 ms-4 max-w-sm  bg-slate-800 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
         <div class="text-end">
             <lord-icon
+                @click="emit('removeBookFromMyList', ISBN)"
                 class="cursor-pointer grow"
                 data-tooltip-target="tooltip-remove"
                 src="https://cdn.lordicon.com/qqedoixr.json"

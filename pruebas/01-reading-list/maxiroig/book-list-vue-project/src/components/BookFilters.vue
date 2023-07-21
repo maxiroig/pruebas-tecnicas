@@ -1,6 +1,6 @@
 <script setup>
 import BaseFilter from './global/BaseFilter.vue';
-import TotalAvailableBooks from './TotalAvailableBooks.vue';
+import BaseButton from '@/components/global/BaseButton.vue'
 import { ref, computed } from 'vue';
 import { mapGetters } from 'vuex'
 
@@ -17,24 +17,23 @@ const resetFilters = () => {
 };
 </script>
 <template>
-    <div>
-        <div class="text-end relative top-6 right-2">
-            <span @click="resetFilters" class="text-sm  mb-1 text-pink-600 cursor-pointer hover:text-pink-500">
-                Reset Filters >>
-            </span>
-        </div>
-        <div class="grid grid-cols-3 border border-1 border-gray-500 rounded-lg py-3 mb-8 items-center">
-            <TotalAvailableBooks 
-                class="grid grid-cols-2"
-            />
+    <div class=" ">
+        <div class="flex justify-evenly border border-1 border-gray-500 rounded-lg p-3.5 items-center">
             <BaseFilter
+            class="border border-1 border-gray-500 rounded-lg bg-slate-800 py-2 w-80"
                 ref="resetFiltersNewValue"
                 :data="['testuno', 'testdos', 'testtres']"
                 label="Filter by genre"
                 id="gender"
                 type="select"
             />
+            <div class="px-2">
+                <BaseButton @click="resetFilters" class="">
+                    Reset Filters
+                </BaseButton>
+            </div>
             <BaseFilter
+            class="border border-1 border-gray-500 rounded-lg bg-slate-800 py-2 w-80"
                 type="range"
                 label="Filter by pages"
                 id="pages"

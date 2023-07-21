@@ -1,62 +1,58 @@
 import data from '@/data/dataBooks.json'
 import { createStore } from 'vuex'
 
-// root state object.
-// each Vuex instance is just a single state tree.
 const state = {
-  library: data.library,
+  allLibrary: data.library,
   bookToShowDetails: null,
-  booksInTheLibrary: data.library,
-  booksInMyList:[],
+  libraryBooks: [],
+  myListBooks:[],
 }
 
-// mutations are operations that actually mutate the state.
-// each mutation handler gets the entire state tree as the
-// first argument, followed by additional payload arguments.
-// mutations must be synchronous and can be recorded by plugins
-// for debugging purposes.
 const mutations = {
-  setBooksInLibrary(state, payload){
-    state.bookToShowDetails = payload
+  setAllBooksInLibrary(state){
+    state.libraryBooks = data.library
   },
   updateBookToShow(state, payload){
     state.bookToShowDetails = payload
   },
-  addBookToList(state, payload){
-    state.booksInMyList = state.booksInMyList.push(payload)
+  addBookToMyList(state, payload){
+    let book = null;
+    book = state.libraryBooks.filter(item => item.book.ISBN === payload)
+    state.myListBooks.push(book[0].book)
+
+    state.libraryBooks = state.libraryBooks.filter(item => item.book.ISBN !== payload) 
   },
-  removeBookFromList(state, payload){
-    state.booksInMyList = state.booksInMyList.filter(item => item.book.ISBN !== payload) 
+  removeBookFromMyList(state, payload){
+    let book = null;
+    book = state.myListBooks.filter(item => item.ISBN === payload)
+    state.libraryBooks.push({book: book[0]})
+
+    state.myListBooks = state.myListBooks.filter(item => item.ISBN !== payload) 
   },
   
 }
 
-// actions are functions that cause side effects and can involve
-// asynchronous operations.
 const actions = {
-  setBookInLibrary (context) {
-    context.commit("setBooksInLibrary")
+  setAllBooksInLibrary (context) {
+    context.commit("setAllBooksInLibrary")
   },
   bookToShow (context, payload) {
     context.commit("updateBookToShow", payload)
   },
-  addBookToList (context, payload) {
-    context.commit("addBookToList", payload)
+  addBookToMyList (context, payload) {
+    context.commit("addBookToMyList", payload)
   },
-  removeBookFromList (context, payload) {
-    context.commit("removeBookFromList", payload)
+  removeBookFromMyList (context, payload) {
+    context.commit("removeBookFromMyList", payload)
   }
 }
 
-// getters are functions.
 const getters = {
   getBookById: (state) => (id) => {
-    return state.library.filter(item => item.book.ISBN === id)
+    return state.allLibrary.filter(item => item.book.ISBN === id)
   },
 }
 
-// A Vuex instance is created by combining the state, mutations, actions,
-// and getters.
 export default createStore({
   state,
   getters,
