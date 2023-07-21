@@ -5,7 +5,8 @@ import { createStore } from 'vuex'
 // each Vuex instance is just a single state tree.
 const state = {
   library: data.library,
-  bookToShowDetails: "",
+  bookToShowDetails: null,
+  booksInTheLibrary: data.library,
   booksInMyList:[],
 }
 
@@ -15,16 +16,35 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
+  setBooksInLibrary(state, payload){
+    state.bookToShowDetails = payload
+  },
   updateBookToShow(state, payload){
     state.bookToShowDetails = payload
-  }
+  },
+  addBookToList(state, payload){
+    state.booksInMyList = state.booksInMyList.push(payload)
+  },
+  removeBookFromList(state, payload){
+    state.booksInMyList = state.booksInMyList.filter(item => item.book.ISBN !== payload) 
+  },
+  
 }
 
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
+  setBookInLibrary (context) {
+    context.commit("setBooksInLibrary")
+  },
   bookToShow (context, payload) {
     context.commit("updateBookToShow", payload)
+  },
+  addBookToList (context, payload) {
+    context.commit("addBookToList", payload)
+  },
+  removeBookFromList (context, payload) {
+    context.commit("removeBookFromList", payload)
   }
 }
 

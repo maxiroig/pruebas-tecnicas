@@ -23,7 +23,7 @@ watch(getNewBookToShow,(currentValue) => {router.push(`/book/${currentValue}`)})
   </header>
   <main class="container mx-auto py-6">
     <MyList
-    :data="library"
+      :data="library"
     />
     <BookFilters/>
     <BookList 

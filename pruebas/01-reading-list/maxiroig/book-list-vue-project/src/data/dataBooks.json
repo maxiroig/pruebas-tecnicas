@@ -32,25 +32,6 @@
     },
     {
       "book": {
-        "title": "Harry Potter y la piedra filosofal",
-        "pages": 223,
-        "genre": "Fantasía",
-        "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1550337333i/15868.jpg",
-        "synopsis": "Un niño descubre que es un mago y comienza una aventura en una escuela de magia.",
-        "year": 1997,
-        "ISBN": "978-0747532699",
-        "author": {
-          "name": "J.K. Rowling",
-          "otherBooks": [
-            "Harry Potter y la cámara secreta",
-            "Harry Potter y el prisionero de Azkaban",
-            "Harry Potter y el cáliz de fuego"
-          ]
-        }
-      }
-    },
-    {
-      "book": {
         "title": "1984",
         "pages": 328,
         "genre": "Ciencia ficción",
@@ -196,6 +177,25 @@
         "author": {
           "name": "H.P. Lovecraft",
           "otherBooks": ["El horror de Dunwich", "En las montañas de la locura"]
+        }
+      }
+    },
+    {
+      "book": {
+        "title": "Harry Potter y la piedra filosofal",
+        "pages": 223,
+        "genre": "Fantasía",
+        "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1550337333i/15868.jpg",
+        "synopsis": "Un niño descubre que es un mago y comienza una aventura en una escuela de magia.",
+        "year": 1997,
+        "ISBN": "978-0747532699",
+        "author": {
+          "name": "J.K. Rowling",
+          "otherBooks": [
+            "Harry Potter y la cámara secreta",
+            "Harry Potter y el prisionero de Azkaban",
+            "Harry Potter y el cáliz de fuego"
+          ]
         }
       }
     }
