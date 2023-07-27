@@ -10,6 +10,10 @@ module.exports = {
       fontFamily: {
         lumanosimo: ['lumanosimo', 'cursive'],
         pacifico : ['pacifico', 'cursive'],
+        cinzel: ['cinzel Decorative', 'cursive'],
+        playfare: ['Playfair Display', 'serif'],
+        yellowtail: ['Yellowtail', 'cursive']
+
       },
       spacing: {
         '128': '29rem',

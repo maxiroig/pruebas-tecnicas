@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import './assets/style.css'
 
+
 const app = createApp(App)
 
 library.add(faUserSecret)

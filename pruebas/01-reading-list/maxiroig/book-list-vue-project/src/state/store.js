@@ -1,40 +1,56 @@
 import data from '@/data/dataBooks.json'
 import { createStore } from 'vuex'
+import createMultiTabState from 'vuex-multi-tab-state';
 
 const state = {
   allLibrary: data.library,
   bookToShowDetails: null,
   libraryBooks: [],
-  myListBooks:[],
+  myListOfBooks:[],
+  filteredLibraryBooks: [],
 }
 
 const mutations = {
-  setAllBooksInLibrary(state){
-    state.libraryBooks = data.library
+  setStateByDefault(state){
+    let library = [];
+    data.library.forEach(item => {library.push(item.book)})
+    state.libraryBooks = library
+    state.allLibrary = library
+    state.myListOfBooks = []
+    state.filteredLibraryBooks = []
+  },
+  addBookToMyList(state, payload){
+    let book = null;
+    book = state.libraryBooks.filter(item => item.ISBN === payload)
+    state.myListOfBooks.push(book[0])
+    state.libraryBooks = state.libraryBooks.filter(item => item.ISBN !== payload) 
+    state.filteredLibraryBooks = state.filteredLibraryBooks.filter(item => item.ISBN !== payload) 
+  },
+  removeBookFromMyList(state, payload){
+    let book = null;
+    book = state.myListOfBooks.filter(item => item.ISBN === payload)
+    state.libraryBooks.push(book[0])
+    state.filteredLibraryBooks.push(book[0])
+    state.myListOfBooks = state.myListOfBooks.filter(item => item.ISBN !== payload) 
   },
   updateBookToShow(state, payload){
     state.bookToShowDetails = payload
   },
-  addBookToMyList(state, payload){
-    let book = null;
-    book = state.libraryBooks.filter(item => item.book.ISBN === payload)
-    state.myListBooks.push(book[0].book)
-
-    state.libraryBooks = state.libraryBooks.filter(item => item.book.ISBN !== payload) 
+  updateFilteredLibraryBooks(state, payload){
+    console.log("payload", payload);
+    state.filteredLibraryBooks = [];
+    payload.forEach(item => {
+      state.filteredLibraryBooks.push(item);
+    });
   },
-  removeBookFromMyList(state, payload){
-    let book = null;
-    book = state.myListBooks.filter(item => item.ISBN === payload)
-    state.libraryBooks.push({book: book[0]})
-
-    state.myListBooks = state.myListBooks.filter(item => item.ISBN !== payload) 
+  resetFilters(state){
+    state.filteredLibraryBooks = []
   },
-  
 }
 
 const actions = {
-  setAllBooksInLibrary (context) {
-    context.commit("setAllBooksInLibrary")
+  setStateByDefault (context) {
+    context.commit("setStateByDefault")
   },
   bookToShow (context, payload) {
     context.commit("updateBookToShow", payload)
@@ -44,12 +60,30 @@ const actions = {
   },
   removeBookFromMyList (context, payload) {
     context.commit("removeBookFromMyList", payload)
+  },
+  updateFilteredLibraryBooks (context, payload) {
+    context.commit("updateFilteredLibraryBooks", payload)
+  },
+  resetFilters (context) {
+    context.commit("resetFilters")
   }
 }
 
 const getters = {
   getBookById: (state) => (id) => {
-    return state.allLibrary.filter(item => item.book.ISBN === id)
+    return state.libraryBooks.filter(item => item.ISBN === id)
+  },
+  getBookToShowDetails: (state) => {
+    return state.bookToShowDetails
+  },
+  getLibraryBooks: (state) => {
+    return state.libraryBooks
+  },
+  getMyListOfBooks: (state) => {
+    return state.myListOfBooks
+  },
+  getFilteredLibrary: (state) => {
+    return state.filteredLibraryBooks
   },
 }
 
@@ -57,5 +91,8 @@ export default createStore({
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  plugins: [
+    createMultiTabState(),
+  ],
 })

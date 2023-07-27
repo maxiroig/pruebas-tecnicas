@@ -12,23 +12,9 @@ const props = defineProps(["title", "cover", "author", "genre", "ISBN", "year", 
             Back Home
         </BaseButton>
         <div class="w-full max-w-sm  bg-slate-800 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
-            <div class="text-end me-1">
-                <lord-icon
-                    class="cursor-pointer"
-                    data-tooltip-target="tooltip-add"
-                    src="https://cdn.lordicon.com/ytuosppc.json"
-                    trigger="loop-on-hover"
-                    colors="primary:#db2777,secondary:#ec4899"
-                    stroke="80"
-                    style="width:50px;height:50px">
-                </lord-icon>
-                <div id="tooltip-add" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-                    Add to list
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div> 
-            </div>
+            
             <a href="#">
-                <img class="mx-auto pb-3 rounded-t-lg" :src="props.cover" alt="product image" />
+                <img class="mx-auto pb-3 mt-4 rounded-t-lg" :src="props.cover" alt="product image" />
             </a>
             <div class="ps-8 pb-5">
 
@@ -88,3 +74,7 @@ const props = defineProps(["title", "cover", "author", "genre", "ISBN", "year", 
         </div>
     </div>
 </template>
+
+<style scoped>
+
+</style>

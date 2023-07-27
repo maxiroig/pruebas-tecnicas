@@ -1,12 +1,15 @@
 <script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 import BaseCardMyList from './global/BaseCardMyList.vue';
 
-const props = defineProps(["data"])
+const store = useStore()
 const emit = defineEmits(["removeBookFromMyList"])
 
 const removeBookFromMyList = (id) => {
     emit("removeBookFromMyList", id)
 }
+const myBookList = computed (() =>  store.getters.getMyListOfBooks) 
 
 </script>
 <template>
@@ -32,7 +35,7 @@ const removeBookFromMyList = (id) => {
 
     <!-- drawer component -->
     <div id="drawer-swipe"
-        class="fixed z-40 w-full bg-slate-800 border-t border-gray-500 rounded-t-lg dark:border-gray-700 dark:bg-gray-800 transition-transform bottom-0 left-0 right-0 translate-y-full bottom-[60px] max-h-[365px] overflow-hidden overflow-x-auto"
+        class="fixed z-40 w-full bg-slate-800 border-t border-gray-500 rounded-t-lg dark:border-gray-700 dark:bg-gray-800 transition-transform  left-0 right-0 translate-y-full bottom-[60px] max-h-[365px] overflow-hidden overflow-x-auto"
         tabindex="-1" aria-labelledby="drawer-swipe-label">
         <div class="p-4 cursor-pointer hover:bg-slate-700 dark:hover:bg-gray-700" data-drawer-toggle="drawer-swipe">
             <span class="absolute w-8 h-1 -translate-x-1/2 bg-gray-500 rounded-lg top-3 left-1/2 dark:bg-gray-600"></span>
@@ -47,11 +50,14 @@ const removeBookFromMyList = (id) => {
                 My Books
             </h5>
         </div>
-        <div class="w-max mb-8">
+        <div 
+        v-if="myBookList.length > 0"
+        class="w-max mb-8"
+        >
             <div 
-            v-for="(item, index) in props.data" :key="index"
+            v-for="(item, index) in myBookList" :key="index"
             class="inline-block rounded-lg dark:hover:bg-gray-600 dark:bg-gray-700 h-[298px] w-[200px]">
-                <div
+                <div 
                     class="flex justify-center items-center mx-auto mb-2 bg-slate-800 dark:bg-gray-600">
                     <BaseCardMyList
                         :title="item.title"
@@ -63,6 +69,14 @@ const removeBookFromMyList = (id) => {
                         @removeBookFromMyList="removeBookFromMyList"
                     />
                 </div>
+            </div>
+        </div>
+        <div 
+        v-else
+        class="text-center mt-12"
+        >
+            <div class="text-white h-36 text-2xl">
+                You haven't added any books to your list yet
             </div>
         </div>
     </div>

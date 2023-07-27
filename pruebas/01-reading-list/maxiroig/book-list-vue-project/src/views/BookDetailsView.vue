@@ -9,10 +9,8 @@ const route = useRoute();
 const bookId = ref(route.params)
 
 
-const getBookFromState = computed (() => {
-    return store.getters.getBookById(bookId.value.id)
-})
-const bookToShowDetails = ref(getBookFromState.value[0].book)
+const getBookFromState = computed (() =>  store.getters.getBookById(bookId.value.id))
+const bookToShowDetails = ref(getBookFromState.value[0])
 
 </script>
 

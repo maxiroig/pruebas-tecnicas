@@ -1,16 +1,18 @@
 <script setup>
 import { ref } from 'vue';
-const props = defineProps(["data", "id", "label", "type", "min", "max"])
 
-const genreFilterSelected = ref("")
+const props = defineProps(["data", "id", "label", "type", "min", "max"])
+const emit = defineEmits(["genreFilterSelected", "pageFilterSelected"])
+
+const genreFilterSelected = ref(null)
 const rangeFilterSelected = ref(null)
 
 
 const resetAllFilters = () => {
-    genreFilterSelected.value = "";
+    genreFilterSelected.value = null;
     rangeFilterSelected.value = null;
-    console.log("range", rangeFilterSelected.value);
 }
+
 defineExpose({
     resetAllFilters
 })
@@ -23,11 +25,12 @@ defineExpose({
                 :for="id">
                 {{ label }}
             </label>
-            <select class="text-white rounded-md h-10 w-60 bg-slate-800 active:ring-slate-800" 
+            <select class="text-white rounded-md h-10 w-60 bg-slate-800 active:ring-slate-800"
+                @change="emit('genreFilterSelected', genreFilterSelected)"
                 v-model="genreFilterSelected" 
                 :name="id" 
                 :id="id">
-                <option v-for="(item, index) in props.data" :key="index" value="filterSelected">
+                <option v-for="(item, index) in props.data" :key="index" :value="item">
                     {{ item }}
                 </option>
             </select>
@@ -44,13 +47,13 @@ defineExpose({
                 <span>+</span>
             </div>
             <input
-                @mouseup="test"
+                @mouseup="emit('pageFilterSelected', rangeFilterSelected)"
                 v-model="rangeFilterSelected" 
-                id="id" 
+                :id="id" 
                 :type="type" 
                 :min="min" 
                 :max="max"
-                :value="rangeFilterSelected"
+                value="rangeFilterSelected"
                 class="w-56 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 relative bottom-2"
             >
         </div>
